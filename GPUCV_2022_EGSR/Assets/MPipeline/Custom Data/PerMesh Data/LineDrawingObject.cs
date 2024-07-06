@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Assets.MPipeline.Custom_Data.PerMesh_Data;
-using Sirenix.OdinInspector;
+//using Sirenix.OdinInspector;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -10,22 +10,22 @@ namespace MPipeline.Custom_Data.PerMesh_Data
     public class LineDrawingObject : MonoBehaviour
     {
         // Object rotation for testing strokes' temporal coherence
-        [LabelText("X轴旋转速度")]
-        [PropertyRange(0f, 0.5f)] public float RotateX = .0f;
-        [LabelText("Y轴旋转速度")]
-        [PropertyRange(0f, 1.0f)] public float RotateY = .0f;
-        [LabelText("Z轴旋转速度")]
-        [PropertyRange(0f, 0.5f)] public float RotateZ = .0f;
+        //[LabelText("X轴旋转速度")]
+        /*[PropertyRange(0f, 0.5f)]*/ public float RotateX = .0f;
+        //[LabelText("Y轴旋转速度")]
+        /*[PropertyRange(0f, 1.0f)]*/ public float RotateY = .0f;
+        //[LabelText("Z轴旋转速度")]
+        /*[PropertyRange(0f, 0.5f)] */public float RotateZ = .0f;
 
-        [LabelText("X轴移动速度")]
-        [PropertyRange(-0.05f, 0.05f)] public float TranslateX = .0f;
-        [LabelText("Y轴移动速度")]
-        [PropertyRange(-0.01f, 0.01f)] public float TranslateY = .0f;
-        [LabelText("Z轴移动速度")]
-        [PropertyRange(-0.5f, 0.5f)] public float TranslateZ = .0f;
+        //[LabelText("X轴移动速度")]
+        /*[PropertyRange(-0.05f, 0.05f)]*/ public float TranslateX = .0f;
+        //[LabelText("Y轴移动速度")]
+        /*[PropertyRange(-0.01f, 0.01f)]*/ public float TranslateY = .0f;
+        //[LabelText("Z轴移动速度")]
+        /*[PropertyRange(-0.5f, 0.5f)]*/ public float TranslateZ = .0f;
         
-        [LabelText("运动周期")]
-        [PropertyRange(1000f, 10000f)] public float Period = 1000f;
+        //[LabelText("运动周期")]
+        /*[PropertyRange(1000f, 10000f)]*/ public float Period = 1000f;
 
 
         ///-////////////////////////////////----------------------------------

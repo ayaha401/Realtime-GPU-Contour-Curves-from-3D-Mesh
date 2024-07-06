@@ -1,5 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
-using Sirenix.OdinInspector;
+//using Sirenix.OdinInspector;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -7,7 +7,7 @@ using UnityEngine.Rendering.Universal;
 
 namespace Assets.MPipeline.Custom_Data.TextureCurve
 {
-    [CreateAssetMenu(fileName = "CurveTexture.asset", menuName = "LDPipeline Data/Texture/Curve", order = 0)]
+    //[CreateAssetMenu(fileName = "CurveTexture.asset", menuName = "LDPipeline Data/Texture/Curve", order = 0)]
     public class MyTextureCurve : ScriptableObject
     {
         [SerializeField] private AnimationCurve _curve = 
@@ -66,13 +66,13 @@ namespace Assets.MPipeline.Custom_Data.TextureCurve
         /// Marks the curve as dirty to trigger a redraw of the texture the next time
         /// is called.
         /// </summary>
-        [Button(ButtonSizes.Medium)]
+        //[Button(ButtonSizes.Medium)]
         public new void SetDirty()
         {
             _isTextureDirty = true;
         }
 
-        [Button(ButtonSizes.Medium)]
+        //[Button(ButtonSizes.Medium)]
         public void Bake()
         {
             if (_texture == null)

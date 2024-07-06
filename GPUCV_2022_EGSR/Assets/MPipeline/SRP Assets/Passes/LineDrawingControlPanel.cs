@@ -2,7 +2,6 @@
 using System.Collections;
 using Assets.MPipeline.Custom_Data.TextureCurve;
 using MPipeline.SRP_Assets.Passes;
-using Sirenix.OdinInspector;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -12,7 +11,7 @@ namespace Assets.MPipeline.SRP_Assets.Passes
     {
         //-//////////////////////////////////////////////////////////////////////////////
         // 交互面板 
-        [Title("描边几何算法")]
+        //[Title("描边几何算法")]
         // -----------------------------------------------------------------------
         public (int value, int propid) RenderPass =>
         (
@@ -21,63 +20,63 @@ namespace Assets.MPipeline.SRP_Assets.Passes
         );
 
 
-        [Title("描边绘制对象")]
-        [Button(ButtonSizes.Large, ButtonStyle.Box, Name = "渲染描边线条")]
+        //[Title("描边绘制对象")]
+        //[Button(ButtonSizes.Large, ButtonStyle.Box, Name = "渲染描边线条")]
         public bool RenderVectorizedCurves = false;
-        [InfoBox("Temporal Coherence Optimizer is removed in this version, \n" +
-                 "which means strokes can change quickly under animation.", 
-            InfoMessageType.Info)]
-        [Button(ButtonSizes.Large, ButtonStyle.Box, Name = "Debug PDB线条")]
+        //[InfoBox("Temporal Coherence Optimizer is removed in this version, \n" +
+        //         "which means strokes can change quickly under animation.", 
+        //    InfoMessageType.Info)]
+        //[Button(ButtonSizes.Large, ButtonStyle.Box, Name = "Debug PDB线条")]
         public bool TemporalCoherentMode = false;
 
 
-        [Title("线条控制")]
+        //[Title("线条控制")]
         // -----------------------------------------------------------------------
         // [LabelText("描边大小")]
-        [PropertyRange(0.1, 25)]
+        //[PropertyRange(0.1, 25)]
         public float LineScale = 1;
 
         // [LabelText("描边宽度")] 
-        [PropertyRange(1, 12)]
+        //[PropertyRange(1, 12)]
         public float LineWidth = 6;
 
         // [LabelText("描边长度")] 
         [NonSerialized] // Stamping is not supported in this version
-        [PropertyRange(1, 12)]
+        //[PropertyRange(1, 12)]
         public float StampLengthSetting = 6;
 
         // 32 is hard-coded at shader side,
         // for details, see MAX_STAMP_QUAD_SCALE in "CustomShaderInputs.hlsl"
         // [LabelText("描边长宽区间")] 
-        [MinMaxSlider(1, 32)]
+        //[MinMaxSlider(1, 32)]
         public Vector2 minMaxWidth = new Vector2(3, 16);
 
 
         // [LabelText("深度控制曲线")] 
-        [PropertyTooltip("深度对线条粗细影响")]
+        //[PropertyTooltip("深度对线条粗细影响")]
         public MyTextureCurve DepthCurve;
 
         // [LabelText("深度区间")] 
-        [MinMaxSlider(0f, 1f)]
+        //[MinMaxSlider(0f, 1f)]
         public Vector2 minMaxDepth = new Vector2(0f, 1f);
 
         [NonSerialized]
-        [LabelText("曲率控制曲线")] [PropertyTooltip("曲率对线条粗细影响")]
+        /*[LabelText("曲率控制曲线")]*//* [PropertyTooltip("曲率对线条粗细影响")]*/
         public MyTextureCurve CurvatureCurve;
 
         [NonSerialized]
-        [LabelText("曲率区间")] [PropertyTooltip("曲率控制曲线影响到的曲率区间")] [MinMaxSlider(0f, 1.0f)]
+        /*[LabelText("曲率区间")] *//*[PropertyTooltip("曲率控制曲线影响到的曲率区间")]*/ /*[MinMaxSlider(0f, 1.0f)]*/
         public Vector2 minMaxCurv = new Vector2(0f, 0.1f);
 
         // [LabelText("笔刷控制曲线")] 
-        [PropertyTooltip("参数对线条粗细影响")]
+        //[PropertyTooltip("参数对线条粗细影响")]
         public MyTextureCurve CurveShape;
 
         [NonSerialized]
-        [LabelText("密度控制曲线")] [PropertyTooltip("抑制描边密集区域的线条粗细")]
+        /*[LabelText("密度控制曲线")] *//*[PropertyTooltip("抑制描边密集区域的线条粗细")]*/
         public MyTextureCurve DensityCurve;
 
-        [PropertyRange(0f, 1f)]
+        //[PropertyRange(0f, 1f)]
         public float OrientThreshold = 0.1f;
 
         /// <summary>
@@ -108,20 +107,20 @@ namespace Assets.MPipeline.SRP_Assets.Passes
 
 
         //-/////////////////////////////////////////////////////////
-        [Title("风格化示例")]
-        [EnumToggleButtons] public VectorizedPathStyle Style;
+        //[Title("风格化示例")]
+        /*[EnumToggleButtons]*/ public VectorizedPathStyle Style;
 
         // [LabelText("笔刷 纹理")] 
-        [ShowIf("Style", VectorizedPathStyle.Textured)]
+        //[ShowIf("Style", VectorizedPathStyle.Textured)]
         public Texture2D BrushTexture;
         
-        [ShowIf("Style", VectorizedPathStyle.Textured)]
-        [Range(1u, 4u)]
+        //[ShowIf("Style", VectorizedPathStyle.Textured)]
+        //[Range(1u, 4u)]
         public int BrushCount = 1;
         
-        [ShowIf("Style", VectorizedPathStyle.Textured)]
-        [LabelText("Brush Stretching")]
-        [PropertyRange(0f, 1f)] public float DebugParams1;
+        //[ShowIf("Style", VectorizedPathStyle.Textured)]
+        //[LabelText("Brush Stretching")]
+        /*[PropertyRange(0f, 1f)]*/ public float DebugParams1;
 
         // [LabelText("笔刷分割")]
 
@@ -133,43 +132,43 @@ namespace Assets.MPipeline.SRP_Assets.Passes
         [NonSerialized] public int BrushCountID;
 
 
-        [Title("性能参数")]
+        //[Title("性能参数")]
         // --------------------------------------------------------------------
         // [LabelText("笔刷链接跳数")]
-        [PropertyRange(12, 22)]
+        //[PropertyRange(12, 22)]
         public int ListRankingJumps = 16;
 
         [NonSerialized]
-        [LabelText("曲率平滑迭代")] [PropertyRange(0, 12)]
+        //[LabelText("曲率平滑迭代")] [PropertyRange(0, 12)]
         public int CurvatureSmoothingIterations = 1;
 
         [NonSerialized]
-        [LabelText("曲率导数平滑迭代")] [PropertyRange(0, 6)]
+        //[LabelText("曲率导数平滑迭代")] [PropertyRange(0, 6)]
         public int CurvatureDerivativeSmoothingIterations = 3;
 
 
-        [Title("Debug")]
+        //[Title("Debug")]
         // --------------------------------------------------------------------
-        [NonSerialized][PropertyRange(0f, 1f)] public float DebugParams0;
-        // [NonSerialized][PropertyRange(0f, 1f)] public float DebugParams1;
-        [NonSerialized][PropertyRange(0f, 1f)] public float DebugParams2;
-        [NonSerialized][PropertyRange(0f, 1f)] public float DebugParams3;
-        [NonSerialized][LabelText("测试用曲线 I")] public MyTextureCurve DebugTextureCurve0;
+        [NonSerialized]/*[PropertyRange(0f, 1f)]*/ public float DebugParams0;
+        //[NonSerialized] /*[PropertyRange(0f, 1f)]*/ public float DebugParams1;
+        [NonSerialized]/*[PropertyRange(0f, 1f)]*/ public float DebugParams2;
+        [NonSerialized]/*[PropertyRange(0f, 1f)]*/ public float DebugParams3;
+        [NonSerialized]/*[LabelText("测试用曲线 I")]*/ public MyTextureCurve DebugTextureCurve0;
 
 
 
         // Control which RT to display on screen
         // ----------------------------------------------------------
-        [ValueDropdown("_lineDrawingTextureToPresent")]
+        //[ValueDropdown("_lineDrawingTextureToPresent")]
         public int debugOutput = -1;
 
-        private static IEnumerable _lineDrawingTextureToPresent = new ValueDropdownList<int>()
-        {
-            {"Camera Target", -1},
-            {"Debug Texture #0", LineDrawingTextures.DebugTexture},
-            {"Debug Texture #1", LineDrawingTextures.DebugTexture1},
-            {"Contour GBuffer", LineDrawingTextures.ContourGBufferTexture}
-        };
+        //private static IEnumerable _lineDrawingTextureToPresent = new ValueDropdownList<int>()
+        //{
+        //    {"Camera Target", -1},
+        //    {"Debug Texture #0", LineDrawingTextures.DebugTexture},
+        //    {"Debug Texture #1", LineDrawingTextures.DebugTexture1},
+        //    {"Contour GBuffer", LineDrawingTextures.ContourGBufferTexture}
+        //};
 
         public LineDrawingControlPanel(float pdBdTs)
         {

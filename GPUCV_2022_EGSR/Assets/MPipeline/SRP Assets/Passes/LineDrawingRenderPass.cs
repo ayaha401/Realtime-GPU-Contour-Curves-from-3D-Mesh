@@ -76,6 +76,8 @@ namespace Assets.MPipeline.SRP_Assets.Passes
             ComputeShader computeShader,
             int kernelIndex)
         {
+            Debug.Log($"Extracting kernel{kernelIndex}");
+            
             return new CsKernel(
                 computeShader,
                 setting.kernelPrefix + "_" + setting.kernelTags[kernelIndex]

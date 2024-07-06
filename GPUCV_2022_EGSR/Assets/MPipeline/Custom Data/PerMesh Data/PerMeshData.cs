@@ -1,5 +1,5 @@
 ﻿using MPipeline.Custom_Data.PerMesh_Data;
-using Sirenix.OdinInspector;
+//using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Assets.MPipeline.Custom_Data.PerMesh_Data
@@ -108,10 +108,10 @@ namespace Assets.MPipeline.Custom_Data.PerMesh_Data
 
 
         // Basic Mesh Data ---------------------------------------------------
-        [BoxGroup("Box0", false)]
-        [TitleGroup("Box0/Source Mesh", null, TitleAlignments.Centered)]
-        [PreviewField(75, Sirenix.OdinInspector.ObjectFieldAlignment.Center)]
-        [InlineEditor(InlineEditorModes.LargePreview)]
+        //[BoxGroup("Box0", false)]
+        //[TitleGroup("Box0/Source Mesh", null, TitleAlignments.Centered)]
+        //[PreviewField(75, Sirenix.OdinInspector.ObjectFieldAlignment.Center)]
+        //[InlineEditor(InlineEditorModes.LargePreview)]
         public Mesh mesh;
     }
 }

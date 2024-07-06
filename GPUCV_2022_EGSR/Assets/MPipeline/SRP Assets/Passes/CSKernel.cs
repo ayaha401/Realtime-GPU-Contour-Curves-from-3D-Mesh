@@ -5,6 +5,7 @@ using MPipeline.SRP_Assets.Passes;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
+using System;
 
 namespace Assets.MPipeline.SRP_Assets.Passes
 {
@@ -129,6 +130,14 @@ namespace Assets.MPipeline.SRP_Assets.Passes
             ComputeShader = cs;
 
             KernelIndex = cs.FindKernel(kernelName);
+
+            Debug.Log($"Kernel name: {kernelName}, Kernel index: {KernelIndex}");
+
+            if (KernelIndex < 0)
+            {
+                throw new ArgumentException($"Kernel '{kernelName}' not found in compute shader '{cs.name}'.");
+            }
+
 
             GroupsPerDispatch = new Vector3Int(
                 gpdX, gpdY, gpdZ

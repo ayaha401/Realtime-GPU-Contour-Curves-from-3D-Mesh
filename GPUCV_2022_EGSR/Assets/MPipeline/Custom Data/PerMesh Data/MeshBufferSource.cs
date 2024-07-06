@@ -1,7 +1,7 @@
 ﻿using System;
 using MPipeline.Custom_Data.PerMesh_Data;
 using MPipeline.GeometryProcessing;
-using Sirenix.OdinInspector;
+//using Sirenix.OdinInspector;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -12,34 +12,34 @@ namespace Assets.MPipeline.Custom_Data.PerMesh_Data
     {
         public Mesh mesh;
 
-        [BoxGroup("All")]
-        [TitleGroup("All/Mesh Data", null, TitleAlignments.Centered)]
-        [BoxGroup("All/Mesh Data/Vertex Buffers")]
-        [BoxGroup("All/Mesh Data/Vertex Buffers/Vert Position", false)]
-        [ReadOnly]
+        //[BoxGroup("All")]
+        //[TitleGroup("All/Mesh Data", null, TitleAlignments.Centered)]
+        //[BoxGroup("All/Mesh Data/Vertex Buffers")]
+        //[BoxGroup("All/Mesh Data/Vertex Buffers/Vert Position", false)]
+        //[ReadOnly]
         public float3[] vertexPosition = null;
 
-        [BoxGroup("All/Mesh Data/Vertex Buffers/Vert Normal", false)] [ReadOnly]
+        //[BoxGroup("All/Mesh Data/Vertex Buffers/Vert Normal", false)] [ReadOnly]
         public float3[] vertexNormal = null;
 
-        [BoxGroup("All/Mesh Data/Vertex Buffers/Vert Edges", false)] [ReadOnly]
+        //[BoxGroup("All/Mesh Data/Vertex Buffers/Vert Edges", false)] [ReadOnly]
         public int[] vertexEdges = null;
 
-        [BoxGroup("All/Mesh Data/Face Buffers")]
-        [BoxGroup("All/Mesh Data/Face Buffers/Triangle Verts", false)]
-        [ReadOnly]
+        //[BoxGroup("All/Mesh Data/Face Buffers")]
+        //[BoxGroup("All/Mesh Data/Face Buffers/Triangle Verts", false)]
+        //[ReadOnly]
         public int[] triangleVerts = null;
 
-        [BoxGroup("All/Mesh Data/Face Buffers/Triangle Normal", false)] [ReadOnly]
+        //[BoxGroup("All/Mesh Data/Face Buffers/Triangle Normal", false)] [ReadOnly]
         public float4[] triangleNormal = null;
 
-        [BoxGroup("All/Mesh Data/Face Buffers/Triangle Adjacency", false)] [ReadOnly]
+        //[BoxGroup("All/Mesh Data/Face Buffers/Triangle Adjacency", false)] [ReadOnly]
         public int[] triangleTriangles = null;
 
-        [BoxGroup("All/Mesh Data/Edge Buffers")] [BoxGroup("All/Mesh Data/Edge Buffers/Edge Verts", false)] [ReadOnly]
+        //[BoxGroup("All/Mesh Data/Edge Buffers")] [BoxGroup("All/Mesh Data/Edge Buffers/Edge Verts", false)] [ReadOnly]
         public int[] edgeVerts = null;
 
-        [BoxGroup("All/Mesh Data/Edge Buffers/Edge Triangles", false)] [ReadOnly]
+        //[BoxGroup("All/Mesh Data/Edge Buffers/Edge Triangles", false)] [ReadOnly]
         public int[] edgeTriangles = null;
 
         public int VertexCount => vertexPosition.Length;
@@ -57,15 +57,15 @@ namespace Assets.MPipeline.Custom_Data.PerMesh_Data
         public int NumBoundaryEdges => numBoundaryEdges;
         public int NumSingularEdges => numSingularEdges;
 
-        [SerializeField] [ReadOnly] private int numNormalEdges;
-        [SerializeField] [ReadOnly] private int numConcaveEdges;
-        [SerializeField] [ReadOnly] private int numBoundaryEdges;
-        [SerializeField] [ReadOnly] private int numSingularEdges;
-        [SerializeField] [ReadOnly] private int maxVertexValence;
+        [SerializeField] /*[ReadOnly]*/ private int numNormalEdges;
+        [SerializeField] /*[ReadOnly]*/ private int numConcaveEdges;
+        [SerializeField] /*[ReadOnly]*/ private int numBoundaryEdges;
+        [SerializeField] /*[ReadOnly]*/ private int numSingularEdges;
+        [SerializeField] /*[ReadOnly]*/ private int maxVertexValence;
 
-        [TitleGroup("Mesh Analysis", null, TitleAlignments.Centered, true)]
-        [GUIColor("@MyGuiColors.MorandiLightBlue()")]
-        [Button("Extract Data", ButtonSizes.Medium, ButtonStyle.CompactBox)]
+        //[TitleGroup("Mesh Analysis", null, TitleAlignments.Centered, true)]
+        //[GUIColor("@MyGuiColors.MorandiLightBlue()")]
+        //[Button("Extract Data", ButtonSizes.Medium, ButtonStyle.CompactBox)]
         public void Load()
         {
             if (mesh == null)

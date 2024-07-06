@@ -4,7 +4,6 @@ using System.Linq;
 using Assets.MPipeline.Custom_Data.PerMesh_Data;
 using Assets.MPipeline.Custom_Data.PerMesh_Data.Mesh_Buffer;
 using MPipeline.Custom_Data.PerMesh_Data.Mesh_Buffer;
-using Sirenix.OdinInspector;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -31,17 +30,17 @@ namespace MPipeline.Custom_Data.PerMesh_Data
         }
     }
 
-    [CreateAssetMenu(fileName = "MeshDataCPU.asset", menuName = "LDPipeline Data/Mesh/MeshDataCPU", order = 2)]
+    //[CreateAssetMenu(fileName = "MeshDataCPU.asset", menuName = "LDPipeline Data/Mesh/MeshDataCPU", order = 2)]
     public class MeshDataCPUPreload : PerMeshData, ILineDrawingDataPreLoad<MeshDataSrcPreload>
     {
-        [BoxGroup("Box1", false)]
-        [TitleGroup("Box1/Import Geometry", null, TitleAlignments.Centered)]
+        //[BoxGroup("Box1", false)]
+        //[TitleGroup("Box1/Import Geometry", null, TitleAlignments.Centered)]
         //------------------------------------------------------------------------------//
         //                                BAKING PROCESS                                //
         //------------------------------------------------------------------------------//
-        [Button("Init Data", ButtonSizes.Medium, ButtonStyle.CompactBox)]
-        [GUIColor("@MyGuiColors.MorandiLightBlue()")]
-        [ButtonGroup("Box1/Import Geometry/button", -1)]
+        //[Button("Init Data", ButtonSizes.Medium, ButtonStyle.CompactBox)]
+        //[GUIColor("@MyGuiColors.MorandiLightBlue()")]
+        //[ButtonGroup("Box1/Import Geometry/button", -1)]
         public void Bake() // Only for offline baking
         {
             MeshDataSrcPreload srcPreload = new MeshDataSrcPreload(mesh);
@@ -140,22 +139,22 @@ namespace MPipeline.Custom_Data.PerMesh_Data
         }
 
 
-        [BoxGroup("Box2", false)]
-        [TitleGroup("Box2/Mesh Buffers", null, TitleAlignments.Centered)]
+        //[BoxGroup("Box2", false)]
+        //[TitleGroup("Box2/Mesh Buffers", null, TitleAlignments.Centered)]
 
-        [VerticalGroup("Box2/Mesh Buffers/Vert Position")]
+        //[VerticalGroup("Box2/Mesh Buffers/Vert Position")]
         public MeshBufferCPU<float4> vpBuffer = null;
-        [VerticalGroup("Box2/Mesh Buffers/Vert Normal")]
+        //[VerticalGroup("Box2/Mesh Buffers/Vert Normal")]
         public MeshBufferCPU<float4> vnBuffer = null;
 
-        [VerticalGroup("Box2/Mesh Buffers/Edge List")]
+        //[VerticalGroup("Box2/Mesh Buffers/Edge List")]
         public MeshBufferCPU<uint> evBuffer = null;
-        [VerticalGroup("Box2/Mesh Buffers/Edge Triangles")]
+        //[VerticalGroup("Box2/Mesh Buffers/Edge Triangles")]
         public MeshBufferCPU<uint> etBuffer = null;
 
-        [VerticalGroup("Box2/Mesh Buffers/Face Normal")]
+        //[VerticalGroup("Box2/Mesh Buffers/Face Normal")]
         public MeshBufferCPU<float4> tnBuffer = null;
-        [VerticalGroup("Box2/Mesh Buffers/Face List")]
+        //[VerticalGroup("Box2/Mesh Buffers/Face List")]
         public MeshBufferCPU<uint> tvBuffer = null;
 
         public bool Loaded { get; set; }

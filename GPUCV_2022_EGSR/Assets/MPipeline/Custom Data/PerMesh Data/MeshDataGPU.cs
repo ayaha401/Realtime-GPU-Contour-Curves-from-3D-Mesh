@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using Assets.MPipeline.Custom_Data.PerMesh_Data;
 using Assets.MPipeline.Custom_Data.PerMesh_Data.Mesh_Buffer;
 using MPipeline.Custom_Data.PerMesh_Data.Mesh_Buffer;
-using Sirenix.Utilities;
+//using Sirenix.Utilities;
 using Unity.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
+using System.Linq;
 
 namespace MPipeline.Custom_Data.PerMesh_Data
 {
